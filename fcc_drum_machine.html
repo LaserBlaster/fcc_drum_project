@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-gap: 10px;
+
+            background-color: #2196F3;
+            padding: 0px;
+            margin: 0px;
+        }
+        .drum-pad {
+            background-color: gray;
+        }
+        #display {
+            background-color: black;
+            color: white;
+            width: 100%;
+            text-align: right;
+            height: 60px;
+            margin: 0px;
+            padding: 0px;
+        }
+        .drum-pad {
+            width: 100%;
+            height: 100%;
+        }
+        .item1 {
+            grid-area: 1/1/2/2;
+        }
+        .item2 {
+            grid-area: 1/2/2/3;
+        }
+        .item3 {
+            grid-area: 1/3/2/4;
+        }
+        .item4 {
+            grid-area: 2/1/3/2;
+        }
+        .item5 {
+            grid-area: 2/2/3/3;
+        }
+        .item6 {
+            grid-area: 2/3/3/4;
+        }
+        .item7 {
+            grid-area: 3/1/4/2;
+        }
+        .item8 {
+            grid-area: 3/2/4/3;
+        }
+        .item9 {
+            grid-area: 3/3/4/4;
+        }
+
+    </style>
+  </head>
+  <body>
+    <p>Test words</p>
+    <div id="drumBody"></div>
+
+    <script type="text/babel">
+        let qValueArr = ["Q Drum", "Q Piano"];
+        let qLinkArr = ["https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3", "https://s3.amazonaws.com/freecodecamp/drums/Chord_1.mp3"];
+        let wValueArr = ["W Drum", "W Piano"];
+        let wLinkArr = ["https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3", "https://s3.amazonaws.com/freecodecamp/drums/Chord_2.mp3"];
+        let eValueArr = ["E Drum", "E Piano"];
+        let eLinkArr = ["https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3", "https://s3.amazonaws.com/freecodecamp/drums/Chord_3.mp3"];
+        let aValueArr = ["A Drum", "A Piano"];
+        let aLinkArr = ["https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3", "https://s3.amazonaws.com/freecodecamp/drums/Give_us_a_light.mp3"];
+        let sValueArr = ["S Drum", "S Piano"];
+        let sLinkArr = ["https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3", "https://s3.amazonaws.com/freecodecamp/drums/Dry_Ohh.mp3"];
+        let dValueArr = ["D Drum", "D Piano"];
+        let dLinkArr = ["https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3", "https://s3.amazonaws.com/freecodecamp/drums/Bld_H1.mp3"];
+        let zValueArr = ["Z Drum", "Z Piano"];
+        let zLinkArr = ["https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3", "https://s3.amazonaws.com/freecodecamp/drums/punchy_kick_1.mp3"];
+        let xValueArr = ["X Drum", "X Piano"];
+        let xLinkArr = ["https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3", "https://s3.amazonaws.com/freecodecamp/drums/side_stick_1.mp3"];
+        let cValueArr = ["C Drum", "C Piano"];
+        let cLinkArr = ["https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3", "https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3"];
+        let instrumentArr = ["Drums", "Piano"];
+
+        let play = function(){document.getElementById("audio").play()};
+
+        class DrumMachine extends React.Component {
+
+            constructor(props) {
+
+                super(props);
+
+                this.state = {
+                    power: true,
+                    instrument: instrumentArr[0],
+                    bank: 0,
+                    volume: 50, 
+                    chord: "",
+                    displayValue: "",
+
+                    qValue: qValueArr[0], 
+                    qLink: qLinkArr[0],
+                    wValue: wValueArr[0], 
+                    wLink: wLinkArr[0],
+                    eValue: eValueArr[0], 
+                    eLink: eLinkArr[0],
+
+                    aValue: aValueArr[0], 
+                    aLink: aLinkArr[0],
+                    sValue: sValueArr[0], 
+                    sLink: sLinkArr[0],
+                    dValue: dValueArr[0], 
+                    dLink: dLinkArr[0],
+
+                    zValue: zValueArr[0], 
+                    zLink: zLinkArr[0],
+                    xValue: xValueArr[0], 
+                    xLink: xLinkArr[0],
+                    cValue: cValueArr[0], 
+                    cLink: cLinkArr[0],
+
+
+                };
+
+                this.keyClick = this.keyClick.bind(this);
+                this.keyPressFunction = this.keyPressFunction.bind(this);
+
+            }
+            keyClick (event) {
+                //alert("I've been clicked");
+                //var x = document.getElementById("Q");
+                //x.play();
+                switch (event.target.value) {
+                    case (this.state.qValue):
+                        var audioClip = new Audio();
+                        audioClip.src = this.state.qLink;
+                        audioClip.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.qValue
+                        }))
+                        break;
+                    case (this.state.wValue):
+                        var audioClip = new Audio();
+                        audioClip.src = this.state.wLink;
+                        audioClip.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.wValue
+                        }))
+                        break;
+                    case (this.state.eValue):
+                        var audioClip = new Audio();
+                        audioClip.src = this.state.eLink;
+                        audioClip.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.eValue
+                        }))
+                        break;
+                    case (this.state.aValue):
+                        var audioClip = new Audio();
+                        audioClip.src = this.state.aLink;
+                        audioClip.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.aValue
+                        }))
+                        break;
+                    case (this.state.sValue):
+                        var audioClip = new Audio();
+                        audioClip.src = this.state.sLink;
+                        audioClip.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.sValue
+                        }))
+                        break;
+                    case (this.state.dValue):
+                        var audioClip = new Audio();
+                        audioClip.src = this.state.dLink;
+                        audioClip.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.dValue
+                        }))
+                        break;
+                    case (this.state.zValue):
+                        var audioClip = new Audio();
+                        audioClip.src = this.state.zLink;
+                        audioClip.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.zValue
+                        }))
+                        break;
+                    case (this.state.xValue):
+                        var audioClip = new Audio();
+                        audioClip.src = this.state.xLink;
+                        audioClip.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.xValue
+                        }))
+                        break;
+                    case (this.state.cValue):
+                        var audioClip = new Audio();
+                        audioClip.src = this.state.cLink;
+                        audioClip.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.cValue
+                        }))
+                        break;
+                }
+            }
+            keyPressFunction (event) {
+                switch (event.keyCode){
+                    case (81):
+                        var audioClip = new Audio();
+                        audioClip.src = this.state.qLink;
+                        audioClip.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.qValue
+                        }))
+                        break;
+                    case (87):
+                        var audioClip = new Audio();
+                        audioClip.src = this.state.wLink;
+                        audioClip.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.wValue
+                        }))
+                        break;
+                    case (69):
+                        var audioClip = new Audio();
+                        audioClip.src = this.state.eLink;
+                        audioClip.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.eValue
+                        }))
+                        break;
+                    case (65):
+                        var audioClip = new Audio();
+                        audioClip.src = this.state.aLink;
+                        audioClip.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.aValue
+                        }))
+                        break;
+                    case (83):
+                        var audioClip = new Audio();
+                        audioClip.src = this.state.sLink;
+                        audioClip.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.sValue
+                        }))
+                        break;
+                    case (68):
+                        var audioClip = new Audio();
+                        audioClip.src = this.state.dLink;
+                        audioClip.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.dValue
+                        }))
+                        break;
+                    case (90):
+                        var audioClip = new Audio();
+                        audioClip.src = this.state.zLink;
+                        audioClip.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.zValue
+                        }))
+                        break;
+                    case (88):
+                        var audioClip = new Audio();
+                        audioClip.src = this.state.xLink;
+                        audioClip.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.xValue
+                        }))
+                        break;
+                    case (67):
+                        var audioClip = new Audio();
+                        audioClip.src = this.state.cLink;
+                        audioClip.play();
+                        this.setState((state, props) => ({
+                            displayValue: state.cValue
+                        }))
+                        break;
+                }
+            }
+
+            render() {
+
+                return (
+                    
+                    <div id="drum-machine"> 
+                        {window.addEventListener("keydown", this.keyPressFunction, false)}
+                        <div id="display">{this.state.displayValue}</div>
+                        <div id="buttons" class="grid-container">
+                            <div class="item1 drum-pad" id={this.state.qValue}>
+                                <button class="drum-pad" value={this.state.qValue} onClick={this.keyClick}>Q
+                                    <audio class="clip" id="Q" src={this.state.qLink}></audio>
+                                </button>
+                            </div>
+                            <div class="item2 drum-pad" id={this.state.wValue}>
+                                <button value={this.state.wValue} onClick={this.keyClick}>W</button>
+                                <audio class="clip" id="W" src={this.state.wLink}></audio>                                
+                            </div>
+                            <div class="item3 drum-pad" id={this.state.eValue}>
+                                <button value={this.state.eValue} onClick={this.keyClick}>E</button>
+                                <audio class="clip" id="E" src={this.state.eLink}></audio>                                
+                            </div>
+                            <div class="item4 drum-pad" id={this.state.aValue}>
+                                <button value={this.state.aValue} onClick={this.keyClick}>A</button>
+                                <audio class="clip" id="A" src={this.state.aLink}></audio>                              
+                            </div>
+                            <div class="item5 drum-pad" id={this.state.sValue}>
+                                <button value={this.state.sValue} onClick={this.keyClick}>S</button>
+                                <audio class="clip" id="S" src={this.state.sLink}></audio>                              
+                            </div>
+                            <div class="item6 drum-pad" id={this.state.dValue}>
+                                <button value={this.state.dValue} onClick={this.keyClick}>D</button>
+                                <audio class="clip" id="D" src={this.state.dLink}></audio>                               
+                            </div>
+                            <div class="item7 drum-pad" id={this.state.zValue}>
+                                <button  value={this.state.zValue} onClick={this.keyClick}>Z</button>
+                                <audio class="clip" id="Z" src={this.state.zLink}></audio>                              
+                            </div>
+                            <div class="item8 drum-pad" id={this.state.xValue}>
+                                <button value={this.state.xValue} onClick={this.keyClick}>X</button>
+                                <audio class="clip" id="X" src={this.state.xLink}></audio>                                
+                            </div>
+                            <div class="item9 drum-pad" id={this.state.cValue}>
+                                <button value={this.state.cValue} onClick={this.keyClick}>C</button>
+                                <audio class="clip" id="C" src={this.state.cLink}></audio>                               
+                            </div>
+                            
+                        </div>
+        
+                        { /* Change code above this line */}
+                        {/*code below is for testing variables */}
+
+                        <h4>Controlled Input:</h4>
+                        <p>power:{this.state.power}</p>
+                        <p>bank:{this.state.bank}</p>
+                        <p>volume:{this.state.volume}</p>
+                        <p>Chord:{this.state.chord}</p>
+             
+                    </div>
+
+                );
+
+            }
+
+        }
+        
+        ReactDOM.render(<DrumMachine />, document.getElementById('drumBody'))
+    </script>
+
+  </body>
+</html>
