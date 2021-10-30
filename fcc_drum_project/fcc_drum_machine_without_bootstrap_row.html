@@ -25,7 +25,7 @@
         h2 {
             font-size: 1.5em;
             background-color:green;
-            text-align: center;
+            text-align: left;
             line-height: 1.7em;
         }
         /*
@@ -52,9 +52,9 @@
         }
         .grid-container2{
             display: grid;
-            grid-template-columns: 13em 13em;
-            grid-template-rows: 4em 6em 4em 4em;
-            grid-gap: 10px;
+            grid-template-columns: 12em 12em;
+            grid-template-rows: 6em 6em 5em 5em;
+            grid-gap: 1em;
 
             background-color: #2196F3;
             padding: 0px;
@@ -64,10 +64,25 @@
 
   
         }
+        .bigGrid {
+            display: grid;
+            grid-template-columns: 30em 30em;
+            grid-template-rows: 30em;
+
+
+        }
+        .bigGridItem1 {
+            grid-area: 1/1/2/2;
+
+        }
+        .bigGridItem1 {
+            grid-area: 1/2/2/3;
+            
+        }
         .drum-pad {
             /*display: inline-block; */
             /*vertical-align: middle; */
-            background-color: gray;
+            background-color: rgb(102, 99, 94);
             border-radius: 10%;
             box-shadow: 0.2em 0.2em;
 
@@ -79,11 +94,13 @@
         #display {
             background-color: black;
             color: white;
-            width: 100%;
-            text-align: right;
-            height: 60px;
-            margin: 0px;
-            padding: 0px;
+            text-align: center;
+            margin-left: -1em;
+            padding-top: 0.5em;
+            font-size: 1em;
+            line-height: 2em;
+            width: 12em;
+            height: 3em;
         }
         .drum-pad {
             width: 100%;
@@ -119,59 +136,139 @@
         }
         /* items for right bootstrap column */
         .grid2-item1{
-            grid-area: 1/1/2/2;
+            display: inline;
+            grid-area: 1/1/2/3;
+            width: 13.7em;
+            height: auto;
+
+            background-color: blue;
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-left: 4.05em;
+            padding: 0.1em;
+            border-radius: .2em;
+            border: 0.2em solid black;
+            margin: auto;
+            
         }
         .grid2-item2{
-            grid-area: 2/1/3/2;
+            grid-area: 2/2/3/3;
+
+            
         }
         .grid2-item3{
+            margin: auto;
             grid-area: 3/1/4/2;
+            text-align: left;
+            width: 9.5em;
+            border-radius: 1em;
+
         }
         .grid2-item4{
+            display: inline-block;
             grid-area: 4/1/5/2;
+            align-content: center;
+            text-align: center;
         }
         .grid2-item5{
-            grid-area: 1/2/2/3;
+            grid-area: 2/1/3/2;
+            font-size: 2em;
+            text-align: center;
         }
         .grid2-item6{
-            grid-area: 2/2/5/3;
+            grid-area: 3/2/5/3;
         }
 
 
         /* CSS for mute button */
         .muted {
-            font-size: 1em;
+            display: inline;
+            font-size: 2.4em;
             background-color: red;
-            border-radius: 50%;
-            width: 1.7em;
-            height: 1.7em;
+            padding: 0.4em 0.5em 0.35em 0.6em;
+            
+            margin: 0px;
+            /*
+            display: inline;
+            font-size: 2em;
+            background-color: red;
+            margin: 0px;
+            */
+            /*border-radius: 50%;
+            width: 2em;
+            height: 2em;
             text-align: center;
-            line-height: 1.7em;
+            line-height: 2em;
+            border: 0.3em solid red;
+            */
+            /*
+            margin-top: auto;
+            margin-bottom: auto;
+            */
         }
         .on{
-            font-size: 1em;
+            display: inline;
+            font-size: 2.4em;
             background-color: blue;
+            padding: 0.4em 0.5em 0.35em 0.6em;
+            
+            margin: 0px;
+            /*
             border-radius: 50%;
             width: 1.7em;
             height: 1.7em;
             text-align: center;
             line-height: 1.7em;
+            */
+            /*
+            font-size: 2em;
+            background-color: red;
+            border-radius: 50%;
+            width: 2.5em;
+            height: 2.5em;
+            text-align: center;
+            line-height: 2.5em;
+            border: 0.3em solid red;
+            padding: 0;
+            margin-top: auto;
+            margin-bottom: auto;
+            */
+            /*
+            display: inline;
+            font-size: 2em;
+            background-color: red;
+            border-radius: 50%;
+            width: 2em;
+            height: 2em;
+            text-align: center;
+            line-height: 2em;
+            border: 0.3em solid red;
+            */
+            /*
+            margin-top: auto;
+            margin-bottom: auto;
+            */
         }
+        
 
 
-        #drumBody {
-            margin-bottom: 50em;
-        }
         #powerSection {
-            display: block;
+            display: inline;
 
         }
         #powerLabel {
             display: inline;
+            margin: 0em;
+            padding: 0.2em 0em 0.2em 0.5em;
+            font-size: 2.4em;
         }
+        /*
         #powerButton{
             display: inline;
+            height: 3em;
+            width: 3em;
         }
+        */
         #main-container {
             margin: auto;
             background-color: green;
@@ -184,9 +281,16 @@
             padding: 0em;
         }
         #buttons {
-            margin:auto;
-            background-color: orange;
+            margin: auto;
+            background-color: rgb(222, 217, 204);
         }
+        #volumeMeter{
+            padding-left: 0.5em;
+            border-radius: .2em;
+            border: 0.1em solid black;
+            font-size: 1.5em;
+        }
+        
     </style>
   </head>
   <body>
@@ -260,11 +364,49 @@
                     cValue: cValueArr[0], 
                     cLink: cLinkArr[0],
 
-                    powerClass: volumeOnClass
-           
+                    powerClass: volumeOnClass,
 
-                };
+                    mainContainer: {
+                        backgroundColor: "black"
+                    },
 
+                    bigGrid: {
+                        display: "grid",
+                        gridTemplateColumns: "30em 30em",
+                        gridTemplateRows: "30em",
+                        margin: "auto",
+                        width: "60em",
+                        gridGap: "0px",
+                        backgroundColor: "rgb(222, 217, 204)"
+
+                    },
+                    bigGridItem1: {
+                        gridArea: "1/1/2/2",
+                        //border: "5px solid green",
+                        borderTop: ".4em solid green",
+                        borderBottom: ".4em solid green",
+                        borderLeft: ".4em solid green",
+                        gridGap: "0px",
+                        backgroundColor: "rgb(222, 217, 204)",
+                        padding: "2em"
+                    },
+                    bigGridItem2: {
+                        gridArea: "1/2/2/3",
+                        //border: "5px solid yellow",
+                        
+                        borderTop: ".4em solid green",
+                        borderBottom: ".4em solid green",
+                        borderRight: ".4em solid green",
+                        marginLeft: "0em",
+                        
+                        gridGap: "0px",
+                        paddingTop: "2em",
+                        backgroundColor: "rgb(222, 217, 204)"
+
+                    },
+                    color: "blue"
+                
+                }
                 this.padClick = this.padClick.bind(this);
                 //this.keyClick = this.keyClick.bind(this);
                 this.keyPressFunction = this.keyPressFunction.bind(this);
@@ -272,6 +414,7 @@
                 this.muteFunction = this.muteFunction.bind(this);
                 this.setVolume = this.setVolume.bind(this);
                 this.setInstrument = this.setInstrument.bind(this);
+                this.windowResizeFunction = this.windowResizeFunction.bind(this);
 
             }
             //Adding event listeners withcomponentDidMount
@@ -287,8 +430,12 @@
                 document.getElementById(this.state.zValue).addEventListener("click", this.padClick);
                 document.getElementById(this.state.xValue).addEventListener("click", this.padClick);
                 document.getElementById(this.state.cValue).addEventListener("click", this.padClick);
-                document.getElementById("powerButton").addEventListener("click", this.muteFunction );
+                //document.getElementById("powerButton").addEventListener("click", this.muteFunction );
+                
+                document.getElementById("powerSection").addEventListener("click", this.muteFunction );
+                
                 window.addEventListener("keydown", this.keyPressFunction);
+                window.addEventListener('resize', this.windowResizeFunction)
             }
             componentWillUnmount() {
                 // Make sure to remove the DOM listener when the component is unmounted.
@@ -304,6 +451,70 @@
                 document.getElementById(this.state.cValue).removeEventListener("click", this.padClick);
                 window.removeEventListener("keydown", this.keyPressFunction);
             }
+            windowResizeFunction(event) {
+                //alert(window.innerWidth)
+                if(window.innerWidth >= 1000){
+                    this.setState((state, props) => ({
+                        bigGrid: {
+                        display: "grid",
+                        gridTemplateColumns: "30em 30em",
+                        gridTemplateRows: "30em",
+                        backgroundColor:"black",
+                        margin: "auto",
+                        width: "60em",
+                        gridGap: "0px"
+
+                        },
+                        bigGridItem1: {
+                            gridArea: "1/1/2/2",
+                            //border: "5px solid green",
+                            borderTop: ".4em solid green",
+                            borderBottom: ".4em solid green",
+                            borderLeft: ".4em solid green",
+                            gridGap: "0px",
+                            backgroundColor: "rgb(194, 187, 169)",
+
+                            padding: "2em"
+                        },
+                        bigGridItem2: {
+                            gridArea: "1/2/2/3",
+                            //border: "5px solid yellow",
+                            
+                            borderTop: ".4em solid green",
+                            borderBottom: ".4em solid green",
+                            borderRight: ".4em solid green",
+                            backgroundColor: "white",
+                            marginLeft: "0em",
+                            
+                            gridGap: "0px",
+                            paddingTop: "2em"
+
+                        }
+                    }))
+                } else {
+                    this.setState((state, props) => ({
+                        bigGrid: {
+                            display: "grid",
+                            width: "40em",
+                            gridTemplateColumns: "30em",
+                            gridTemplateRows: "30em 30em",
+                            gridGap: 0
+
+                        },
+                        bigGridItem1: {
+                            gridArea: "1/1/2/2"
+
+                        },
+                        bigGridItem2: {
+                            gridArea: "2/1/3/2"
+                            
+
+                        }
+                    }))
+                    
+                }
+                
+            }
             muteFunction (event) {
                 let qElement = document.getElementById(this.state.qValue);
                 let wElement = document.getElementById(this.state.wValue);
@@ -318,14 +529,16 @@
                     this.setState((state, props) =>({
                         power: false,
                         powerClass: muteClass,
-                        displayValue: "MUTED"
+                        displayValue: "MUTED",
+                        color: "red"
                     }));
                 } else {
                     
                     this.setState((state, props) =>({
                         power: true,
                         powerClass: volumeOnClass,
-                        displayValue: ""
+                        displayValue: "",
+                        color: "blue"
                     }));
                 }
 
@@ -543,6 +756,10 @@
                     xLink: xLinkArr[instrumentIndex],
                     cValue: cValueArr[instrumentIndex], 
                     cLink: cLinkArr[instrumentIndex],
+
+                    bigGrid: {
+
+                    }
                 }));
             }
             
@@ -550,10 +767,10 @@
 
                 return (
                     
-                    <div id="drum-machine" class="container"> 
-                        <div id="main-container" class="row">
-                            <div class="col-sm-6 left" >
-                                <div id="buttons" class="grid-container">
+                    <div id="drum-machine" /*class="container" style={this.state.mainContainer}*/ > 
+                        <div style={this.state.bigGrid}>
+                            <div style={this.state.bigGridItem1}>
+                                <div id="buttons" class="grid-container" >
                                     <div class="item1 drum-pad" id={this.state.qValue} >
                                         <audio class="clip" id="Q" src={this.state.qLink}></audio>
                                         Q
@@ -593,11 +810,13 @@
                                     
                                 </div>
                             </div>
-                            <div class="col-sm-6" style={{backgroundColor: "red"}}>
-                                <div class="grid-container2">
-                                    <div id="powerSection" class="grid2-item1">
-                                        <h2 id="powerLabel">Power               </h2>
+                            <div style={this.state.bigGridItem2}>
+                                <div id="controls" class="grid-container2" >
+                                   
+                                    <div id="powerSection" class="grid2-item1" style={{backgroundColor: this.state.color}}>
+                                        <h2 id="powerLabel" style={{backgroundColor: this.state.color}}>Power</h2>
                                         <div id="powerButton" class={this.state.powerClass} />
+                                        
                                     </div>
                                     <div class="grid2-item2">
                                         <div id="display">{this.state.displayValue}</div>
@@ -657,9 +876,9 @@
                                     </div>
                                 </div> \
                             */}
-                            
                             </div>
                         </div>
+
                     </div>
                     
                 );
